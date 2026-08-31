@@ -10,11 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const splashScreen = document.getElementById('splash-screen');
     const mainContent = document.querySelector('.main-content');
     
+    // Check if splash screen has been shown before in this session
+    const hasShownSplash = sessionStorage.getItem('splashScreenShown');
+    
     // Adjust timing for Zalo webview
     const splashDuration = isZalo ? 4000 : 5000;
     
-    // Ensure splash screen is visible initially
-    if (splashScreen) {
+    // Only show splash screen if it hasn't been shown in this session
+    if (splashScreen && !hasShownSplash) {
+        // Ensure splash screen is visible initially
         splashScreen.style.display = 'flex';
         splashScreen.style.opacity = '1';
         
@@ -22,40 +26,54 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isZalo) {
             splashScreen.style.transition = 'opacity 0.5s ease-out';
         }
-    }
-    
-    // Ensure main content is hidden initially
-    if (mainContent) {
-        mainContent.style.opacity = '0';
-    }
-    
-    // Auto-dismiss splash screen
-    setTimeout(function() {
-        if (splashScreen) {
-            if (isZalo) {
-                // Simple fade for Zalo
-                splashScreen.style.opacity = '0';
-            } else {
-                splashScreen.classList.add('fade-out');
-            }
-            
-            // Show main content after splash screen starts fading
-            setTimeout(function() {
-                if (mainContent) {
-                    mainContent.classList.add('visible');
-                    mainContent.style.opacity = '1';
+        
+        // Ensure main content is hidden initially
+        if (mainContent) {
+            mainContent.style.opacity = '0';
+        }
+        
+        // Auto-dismiss splash screen
+        setTimeout(function() {
+            if (splashScreen) {
+                if (isZalo) {
+                    // Simple fade for Zalo
+                    splashScreen.style.opacity = '0';
+                } else {
+                    splashScreen.classList.add('fade-out');
                 }
                 
-                // Remove splash screen from DOM after animation completes
+                // Show main content after splash screen starts fading
                 setTimeout(function() {
-                    if (splashScreen) {
-                        splashScreen.style.display = 'none';
-                        splashScreen.remove();
+                    if (mainContent) {
+                        mainContent.classList.add('visible');
+                        mainContent.style.opacity = '1';
                     }
-                }, isZalo ? 500 : 800);
-            }, isZalo ? 200 : 400);
+                    
+                    // Mark splash screen as shown in this session
+                    sessionStorage.setItem('splashScreenShown', 'true');
+                    
+                    // Remove splash screen from DOM after animation completes
+                    setTimeout(function() {
+                        if (splashScreen) {
+                            splashScreen.style.display = 'none';
+                            splashScreen.remove();
+                        }
+                    }, isZalo ? 500 : 800);
+                }, isZalo ? 200 : 400);
+            }
+        }, splashDuration);
+    } else {
+        // Skip splash screen, show main content immediately
+        if (splashScreen) {
+            splashScreen.style.display = 'none';
+            splashScreen.remove();
         }
-    }, splashDuration);
+        
+        if (mainContent) {
+            mainContent.style.opacity = '1';
+            mainContent.classList.add('visible');
+        }
+    }
     
     // Main application functionality
     const loadingElement = document.getElementById('loading');
