@@ -24,6 +24,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    opacity: 1;
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -90,10 +91,12 @@ body {
 .main-content {
     opacity: 0;
     transition: opacity 0.5s ease-in;
+    visibility: hidden;
 }
 
 .main-content.visible {
     opacity: 1;
+    visibility: visible;
 }
 
 /* Animations */

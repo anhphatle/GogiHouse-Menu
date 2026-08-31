@@ -5,6 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const splashScreen = document.getElementById('splash-screen');
     const mainContent = document.querySelector('.main-content');
     
+    // Ensure splash screen is visible initially
+    if (splashScreen) {
+        splashScreen.style.display = 'flex';
+        splashScreen.style.opacity = '1';
+    }
+    
+    // Ensure main content is hidden initially
+    if (mainContent) {
+        mainContent.style.opacity = '0';
+    }
+    
     // Auto-dismiss splash screen after 3.5 seconds
     setTimeout(function() {
         if (splashScreen) {
@@ -14,11 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 if (mainContent) {
                     mainContent.classList.add('visible');
+                    mainContent.style.opacity = '1';
                 }
                 
                 // Remove splash screen from DOM after animation completes
                 setTimeout(function() {
                     if (splashScreen) {
+                        splashScreen.style.display = 'none';
                         splashScreen.remove();
                     }
                 }, 800);
