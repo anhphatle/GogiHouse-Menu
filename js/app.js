@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainContent = document.querySelector('.main-content');
     
     // Adjust timing for Zalo webview
-    const splashDuration = isZalo ? 2000 : 3500;
+    const splashDuration = isZalo ? 4000 : 5000;
     
     // Ensure splash screen is visible initially
     if (splashScreen) {
