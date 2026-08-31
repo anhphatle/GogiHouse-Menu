@@ -1,14 +1,27 @@
 // Main application script for menu list page
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Detect Zalo webview
+    const isZalo = /zalo/i.test(navigator.userAgent) || 
+                   /zalo/i.test(navigator.vendor) ||
+                   window.__ZALO__ !== undefined;
+    
     // Splash Screen functionality
     const splashScreen = document.getElementById('splash-screen');
     const mainContent = document.querySelector('.main-content');
+    
+    // Adjust timing for Zalo webview
+    const splashDuration = isZalo ? 2000 : 3500;
     
     // Ensure splash screen is visible initially
     if (splashScreen) {
         splashScreen.style.display = 'flex';
         splashScreen.style.opacity = '1';
+        
+        // For Zalo, simplify animations
+        if (isZalo) {
+            splashScreen.style.transition = 'opacity 0.5s ease-out';
+        }
     }
     
     // Ensure main content is hidden initially
@@ -16,10 +29,15 @@ document.addEventListener('DOMContentLoaded', function() {
         mainContent.style.opacity = '0';
     }
     
-    // Auto-dismiss splash screen after 3.5 seconds
+    // Auto-dismiss splash screen
     setTimeout(function() {
         if (splashScreen) {
-            splashScreen.classList.add('fade-out');
+            if (isZalo) {
+                // Simple fade for Zalo
+                splashScreen.style.opacity = '0';
+            } else {
+                splashScreen.classList.add('fade-out');
+            }
             
             // Show main content after splash screen starts fading
             setTimeout(function() {
@@ -34,10 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         splashScreen.style.display = 'none';
                         splashScreen.remove();
                     }
-                }, 800);
-            }, 400);
+                }, isZalo ? 500 : 800);
+            }, isZalo ? 200 : 400);
         }
-    }, 3500);
+    }, splashDuration);
     
     // Main application functionality
     const loadingElement = document.getElementById('loading');

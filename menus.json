@@ -1,5 +1,12 @@
 [
     {
+        "id": "bf-xx-plus-459k",
+        "name": "Buffet Xèo Xèo Plus - 459k ( Must Try ) 😋",
+        "folder": "menus/bf-xx-plus-459k",
+        "cover": "menus/bf-xx-plus-459k/cover.webp",
+        "pages": 2
+    },
+    {
         "id": "bf-u22-199k",
         "name": "Buffet U22 - 199k ❤️",
         "folder": "menus/bf-u22-199k",
@@ -25,13 +32,6 @@
         "name": "Buffet Xèo Xèo Classic  - 529k ❤️",
         "folder": "menus/bf-xx-classic-529k",
         "cover": "menus/bf-xx-classic-529k/cover.webp",
-        "pages": 2
-    },
-    {
-        "id": "bf-xx-plus-459k",
-        "name": "Buffet Xèo Xèo Plus - 459k ( Must Try ) 😋",
-        "folder": "menus/bf-xx-plus-459k",
-        "cover": "menus/bf-xx-plus-459k/cover.webp",
         "pages": 2
     }
 ]
