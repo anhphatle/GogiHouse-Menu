@@ -1,6 +1,32 @@
 // Main application script for menu list page
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Splash Screen functionality
+    const splashScreen = document.getElementById('splash-screen');
+    const mainContent = document.querySelector('.main-content');
+    
+    // Auto-dismiss splash screen after 3.5 seconds
+    setTimeout(function() {
+        if (splashScreen) {
+            splashScreen.classList.add('fade-out');
+            
+            // Show main content after splash screen starts fading
+            setTimeout(function() {
+                if (mainContent) {
+                    mainContent.classList.add('visible');
+                }
+                
+                // Remove splash screen from DOM after animation completes
+                setTimeout(function() {
+                    if (splashScreen) {
+                        splashScreen.remove();
+                    }
+                }, 800);
+            }, 400);
+        }
+    }, 3500);
+    
+    // Main application functionality
     const loadingElement = document.getElementById('loading');
     const errorMessageElement = document.getElementById('error-message');
     const menuListElement = document.getElementById('menu-list');
