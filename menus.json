@@ -1,0 +1,37 @@
+[
+    {
+        "id": "bf-quoc-dan-319k",
+        "name": "BF Quốc Dân - 319K",
+        "folder": "menus/bf-quoc-dan-319k",
+        "cover": "menus/bf-quoc-dan-319k/cover.webp",
+        "pages": 2
+    },
+    {
+        "id": "bf-u22-199k",
+        "name": "BF U22 - 199K",
+        "folder": "menus/bf-u22-199k",
+        "cover": "menus/bf-u22-199k/cover.webp",
+        "pages": 2
+    },
+    {
+        "id": "bf-xx-classic-529k",
+        "name": "BF XX Classic - 529K",
+        "folder": "menus/bf-xx-classic-529k",
+        "cover": "menus/bf-xx-classic-529k/cover.webp",
+        "pages": 2
+    },
+    {
+        "id": "bf-xx-hcm-gia-409k-va-tai-tinh-gia-399k",
+        "name": "BF XX - (HCM giá 409K và tại tỉnh giá 399K)",
+        "folder": "menus/bf-xx-hcm-gia-409k-va-tai-tinh-gia-399k",
+        "cover": "menus/bf-xx-hcm-gia-409k-va-tai-tinh-gia-399k/cover.webp",
+        "pages": 2
+    },
+    {
+        "id": "bf-xx-plus-459k",
+        "name": "BF - XX Plus 459K",
+        "folder": "menus/bf-xx-plus-459k",
+        "cover": "menus/bf-xx-plus-459k/cover.webp",
+        "pages": 2
+    }
+]

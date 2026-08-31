@@ -1,0 +1,285 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header styles */
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+}
+
+/* Menu list styles */
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.menu-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+}
+
+.menu-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.menu-card:active {
+    transform: translateY(0);
+}
+
+.menu-card-cover {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background-color: #e9ecef;
+}
+
+.menu-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0) 100%);
+    padding: 24px 16px 16px;
+    pointer-events: none;
+    min-height: 120px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.menu-card-info {
+    padding: 0;
+}
+
+.menu-card-name {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+}
+
+.menu-card-name .main-title {
+    display: block;
+    font-size: 2.5rem;
+}
+
+.menu-card-name .subtitle {
+    display: block;
+    font-size: 1.25rem;
+    margin-top: 4px;
+}
+
+/* Menu viewer header styles */
+.menu-header {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.back-button {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+    padding: 0;
+    cursor: pointer;
+}
+
+.back-button i {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.back-button:hover {
+    background: rgba(0, 0, 0, 1);
+    color: white;
+}
+
+.back-button:active {
+    background: rgba(0, 0, 0, 1);
+}
+
+.menu-title-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Menu pages styles */
+.menu-pages {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-page {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.menu-page-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 210 / 297;
+    object-fit: contain;
+    background-color: #ffffff;
+}
+
+.menu-page-loading {
+    width: 100%;
+    aspect-ratio: 210 / 297;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.menu-page-error {
+    width: 100%;
+    aspect-ratio: 210 / 297;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #dc3545;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Loading spinner */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Error message */
+.alert {
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+/* Responsive design - Mobile first */
+@media (min-width: 768px) {
+    .container {
+        max-width: 700px;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .menu-header {
+        padding: 16px 24px;
+    }
+    
+    .back-button {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .back-button i {
+        font-size: 1.3rem;
+    }
+    
+    .menu-title-header {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 800px;
+    }
+    
+    .menu-card-cover {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .menu-card {
+        transition: none;
+    }
+    
+    .back-button {
+        transition: none;
+    }
+}
+
+/* Focus styles for accessibility */
+.menu-card:focus,
+.back-button:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+.menu-card:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.back-button:focus:not(:focus-visible) {
+    outline: none;
+}
