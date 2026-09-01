@@ -1,6 +1,19 @@
 // Main application script for menu list page
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Get store name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const storeName = urlParams.get('store');
+    
+    // Update store name in splash screen if provided and not empty
+    if (storeName && storeName.trim() !== '') {
+        const storeNameElement = document.getElementById('store-name');
+        if (storeNameElement) {
+            storeNameElement.textContent = storeName.trim() + '! 🥩🔥';
+        }
+    }
+    // If store param is null, empty, or not provided, keep default "GoGi House! 🥩🔥"
+    
     // Detect Zalo webview
     const isZalo = /zalo/i.test(navigator.userAgent) || 
                    /zalo/i.test(navigator.vendor) ||
